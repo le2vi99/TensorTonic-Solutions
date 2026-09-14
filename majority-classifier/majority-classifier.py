@@ -10,6 +10,6 @@ def majority_classifier(y_train: list, X_test: list) -> np.ndarray:
     _, first_index, counts = np.unique(y_train, return_counts=True, return_index=True)
     max_count = counts.max()
     candidates = np.where(counts == max_count)[0]
-    label_index = candidates.min()
+    label_index = first_index[candidates].min()
     label = y_train[label_index]
     return np.full(X_test.shape[0], label)
